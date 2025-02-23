@@ -19,7 +19,7 @@ function getUserInput() {
 }
 
 function outputResult(result, text) {
-  currentResult.textContent = result
+  currentResultOutput.textContent = result
   currentCalculationOutput.textContent = text
 }
 
