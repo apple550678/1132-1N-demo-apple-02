@@ -4,6 +4,16 @@ body {
   font-family: arial;
 }
 
+.alert {
+  display: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 5px 0;
+}
+
 header h1 {
   text-align: center;
   color: #fff;
@@ -61,4 +71,12 @@ footer {
 .reset:hover {
   cursor: pointer;
   background-color: #000;
+}
+
+.board .o {
+  color: green;
+}
+
+.board .x {
+  color: red;
 }
