@@ -4,10 +4,10 @@ let turn = 0
 let done = false
 
 const container = document.querySelector('.container')
-const alert = document.querySelector('.alert')
+const showAlert = document.querySelector('.alert')
 const allLi = document.querySelectorAll('.board li')
 const resetBtn = document.querySelector('.reset')
-// console.log(alert)
+// console.log(showAlert)
 console.log('allLi', allLi)
 
 const checkWin = (player) => {
@@ -34,39 +34,68 @@ const checkWin = (player) => {
 const winMessage = (player) => {
   if (player === 'o') {
     container.style.backgroundColor = 'rgba(144, 238, 144, 0.5)'
-    alert.style.backgroundColor = 'rgba(144, 238, 144, 0.5)'
-    alert.style.color = 'green'
-    alert.style.display = 'block'
-    alert.textContent = 'player o wins'
+    showAlert.style.backgroundColor = 'rgba(144, 238, 144, 0.5)'
+    showAlert.style.color = 'green'
+    showAlert.style.display = 'block'
+    showAlert.textContent = 'player o wins'
   } else {
     container.style.backgroundColor = 'rgba(240, 118, 128, 0.726)'
-    alert.style.backgroundColor = 'rgba(240, 118, 128, 0.726)'
-    alert.style.color = 'purple'
-    alert.style.display = 'block'
-    alert.textContent = 'player x wins'
+    showAlert.style.backgroundColor = 'rgba(240, 118, 128, 0.726)'
+    showAlert.style.color = 'purple'
+    showAlert.style.display = 'block'
+    showAlert.textContent = 'player x wins'
   }
 }
 
 const tieMessage = () => {
-  alert.style.backgroundColor = '#888'
-  alert.style.color = '#ddd'
-  alert.style.display = 'block'
-  alert.textContent = 'tie'
+  showAlert.style.backgroundColor = '#888'
+  showAlert.style.color = '#ddd'
+  showAlert.style.display = 'block'
+  showAlert.textContent = 'tie'
 }
 
-console.log(`checkWin("o")`, checkWin('o'))
-console.log(`checkWin("x")`, checkWin('x'))
+// console.log(`checkWin("o")`, checkWin('o'))
+// console.log(`checkWin("x")`, checkWin('x'))
 // tieMessage()
 // winMessage('o')
 
 const reset = () => {
-  alert.style.display = 'none'
+  showAlert.style.display = 'none'
   container.style.backgroundColor = '#666'
   allLi.forEach((item) => {
     item.textContent = '+'
     item.classList = ''
   })
+  turn = 0
+  done = false
+  showAlert.style.display = 'none'
 }
+
+const go = (item, player, text) => {
+  item.textContent = text
+  // item.classList = 'o disabled'
+  item.classList.add(player, 'disabled')
+  if (checkWin(player)) {
+    winMessage(player)
+    done = true
+  }
+}
+
+allLi.forEach((item) => {
+  item.addEventListener('click', () => {
+    if (item.classList.contains('disabled')) {
+      alert('already filled')
+    } else {
+      if (turn % 2 === 0) {
+        go(item, 'o', 'O')
+      } else if (turn % 2 == 1) {
+        go(item, 'x', 'X')
+      }
+      if (!done && turn < 8) turn++
+      else if (!done && turn >= 8) tieMessage()
+    }
+  })
+})
 
 resetBtn.addEventListener('click', reset)
 
