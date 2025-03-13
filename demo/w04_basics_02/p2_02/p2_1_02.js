@@ -62,3 +62,38 @@ const outputStat1 = (s) => {
 // sdata.push(85)
 
 outputStat1(sdata)
+
+const toSorted = sdata.toSorted(function (a, b) {
+  return b - a
+})
+console.log('sdata after sorting', sdata)
+console.log('toSorted', toSorted)
+let stat = {
+  pass: 0,
+  fail: 0,
+  sum: 0,
+  average: 0,
+}
+const outputStat2 = (s) => {
+  result1.innerHTML = `
+    <h3 class='my-4'> Array Statistics </h3>
+    <p>toSorted after sorting descending:</p>
+    <p>${JSON.stringify(s)}</p>
+    <p>Total: ${s.length}</p>
+    <p>Pass: ${stat.pass}</p>
+    <p>Fail: ${stat.fail}</p>
+    <p>Highest: ${s[0]}</p>
+    <p>Lowest: ${s[s.length - 1]}</p>
+    <p>Average: ${stat.average.toFixed(1)}</p>
+    `
+}
+const computeStat = (s) => {
+  s.forEach((score) => {
+    if (score > 59.5) stat.pass++
+    else stat.fail++
+    stat.sum += score
+    stat.average = stat.sum / s.length
+  })
+}
+computeStat(toSorted)
+outputStat2(toSorted)
