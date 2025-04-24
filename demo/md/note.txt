@@ -1,7 +1,19 @@
 git config --global user.email "apple0974199326@gmail.com"
 git config --global user.name "apple550678"
 
-git log --pretty=format:"%h%x09%an%x09%ad%x09%s" --after="2025-3-28"
-
-
+git log --pretty=format:"%h%x09%an%x09%ad%x09%s" --after="2025-4-23"
 npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch
+
+supabase:
+github登入
+name:apple_lee
+apple071535
+
+Project URL
+https://szkizgkwbtwhcdfrjhba.supabase.co
+
+Project API Keys
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6a2l6Z2t3YnR3aGNkZnJqaGJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU0OTE0MTMsImV4cCI6MjA2MTA2NzQxM30.9oToaZc3_BTZdLVx_jNDAZVE5ZnxoUyUdC4t6y75ngU
+
+
+

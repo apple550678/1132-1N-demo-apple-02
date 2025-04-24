@@ -1,13 +1,13 @@
-import { mid_products_xx } from './products_data_xx.js';
+import { mid_products_xx } from './products_data_02.js'
 
-const productContainer = document.querySelector('.products-container');
+const productContainer = document.querySelector('.products-container')
 
-console.log('mid_products_xx', mid_products_xx);
+console.log('mid_products_xx', mid_products_xx)
 
 const displayProducts = (products) => {
   let productsContent = products
     .map((product) => {
-      const { id, title, price, img } = product;
+      const { id, title, price, img } = product
       return `
         <div class="single-product">
         <img
@@ -20,12 +20,12 @@ const displayProducts = (products) => {
           <span class="price">$${price}</span>
         </footer>
       </div>
-    `;
+    `
     })
-    .join('');
-  productContainer.innerHTML = productsContent;
-};
+    .join('')
+  productContainer.innerHTML = productsContent
+}
 
 document.addEventListener('DOMContentLoaded', async () => {
-  displayProducts(mid_products_xx);
-});
+  displayProducts(mid_products_xx)
+})
