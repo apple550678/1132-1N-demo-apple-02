@@ -31,7 +31,7 @@ export const mid_products_xx = [
     img: './images/product-9.jpg',
     remote_img: '',
   },
-];
+]
 
 export const products_xx = [
   {
@@ -130,4 +130,4 @@ export const products_xx = [
     img: './images/product-12.jpg',
     remote_img: '',
   },
-];
+]

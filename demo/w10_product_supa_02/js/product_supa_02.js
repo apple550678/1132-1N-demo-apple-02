@@ -1,15 +1,13 @@
-import { _supabase } from './clientSupabase_02'
+import { _supabase } from './clientSupabase_02.js'
 
 const productContainer = document.querySelector('.products-container')
 
-let product = []
+let products_02 = []
 
-console.log('mid_products_02', mid_products_02)
-
-const fetchProduct = async () => {
+const fetchProducts = async () => {
   try {
-    let { data, error } = await _supabase.from('product_02')
-    select('*')
+    let { data, error } = await _supabase.from('product_02').select('*')
+    console.log('data', data)
     return data
   } catch (err) {
     console.log(err)
@@ -19,7 +17,7 @@ const fetchProduct = async () => {
 const displayProducts = (products) => {
   let productsContent = products
     .map((product) => {
-      const { id, title, price, img } = product
+      const { id, title, price, img, remote_img } = product
       return `
         <div class="single-product">
         <img
@@ -39,7 +37,7 @@ const displayProducts = (products) => {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  product_02 = fetchProduct()
-
-  displayProducts(mid_products_xx)
+  products_02 = await fetchProducts()
+  console.log('projects_02', products_02)
+  displayProducts(products_02)
 })
