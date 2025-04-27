@@ -1,8 +1,20 @@
-import { mid_products_xx } from './products_data_02.js'
+import { _supabase } from './clientSupabase_02'
 
 const productContainer = document.querySelector('.products-container')
 
-console.log('mid_products_xx', mid_products_xx)
+let product = []
+
+console.log('mid_products_02', mid_products_02)
+
+const fetchProduct = async () => {
+  try {
+    let { data, error } = await _supabase.from('product_02')
+    select('*')
+    return data
+  } catch (err) {
+    console.log(err)
+  }
+}
 
 const displayProducts = (products) => {
   let productsContent = products
@@ -27,5 +39,7 @@ const displayProducts = (products) => {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+  product_02 = fetchProduct()
+
   displayProducts(mid_products_xx)
 })
