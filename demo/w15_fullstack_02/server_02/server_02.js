@@ -1,8 +1,12 @@
 import express from 'express'
+import cors from 'cors'
+import logger from 'morgan'
 import apiProductRouter from './routes/api/apiProductRouter_02.js'
 
 const app_02 = express()
 
+app_02.use(cors())
+app_02.use(logger('dev'))
 app_02.use(express.static('public'))
 app_02.set('view engine', 'ejs')
 

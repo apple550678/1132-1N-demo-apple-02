@@ -1,0 +1,5 @@
+const SUPABASE_UPL = 'https://szkizgkwbtwhcdfrjhba.supabase.co'
+const SUPABASE_ANON_KEY =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6a2l6Z2t3YnR3aGNkZnJqaGJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU0OTE0MTMsImV4cCI6MjA2MTA2NzQxM30.9oToaZc3_BTZdLVx_jNDAZVE5ZnxoUyUdC4t6y75ngU'
+
+export const _supabase = supabase.createClient(SUPABASE_UPL, SUPABASE_ANON_KEY)
